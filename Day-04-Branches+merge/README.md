@@ -76,139 +76,7 @@ Each developer can work independently.
 
 ---
 
-# 🛠️ 2. Basic Branch Commands
-
-## Check Current Branch
-
-```bash
-git branch
-```
-
-Example:
-
-```text
-* main
-  feature/login
-  feature/payment
-```
-
-The `*` indicates the current branch.
-
----
-
-## Create a Branch
-
-```bash
-git branch feature/login
-```
-
-This creates a new branch but does not switch to it.
-
----
-
-## Switch to a Branch
-
-```bash
-git switch feature/login
-```
-
-Older Git command:
-
-```bash
-git checkout feature/login
-```
-
----
-
-## Create and Switch to a Branch
-
-Recommended:
-
-```bash
-git switch -c feature/login
-```
-
-Older syntax:
-
-```bash
-git checkout -b feature/login
-```
-
----
-
-## Delete a Branch
-
-```bash
-git branch -d feature/login
-```
-
-Force delete:
-
-```bash
-git branch -D feature/login
-```
-
-⚠️ `-D` should be used carefully because it can delete a branch containing unmerged changes.
-
----
-
-# 🌐 3. Remote Branches
-
-To see remote branches:
-
-```bash
-git branch -r
-```
-
-To see local and remote branches:
-
-```bash
-git branch -a
-```
-
-Example:
-
-```text
-* main
-  feature/login
-  remotes/origin/main
-  remotes/origin/feature/login
-```
-
----
-
-# 📤 Push a New Branch to GitHub
-
-Create a branch:
-
-```bash
-git switch -c feature/login
-```
-
-Make changes and commit:
-
-```bash
-git add .
-git commit -m "Add login feature"
-```
-
-Push the branch:
-
-```bash
-git push -u origin feature/login
-```
-
-The `-u` option establishes the upstream relationship between the local and remote branch.
-
-After that, you can usually use:
-
-```bash
-git push
-```
-
----
-
-# 🔀 4. What is Git Merge?
+# 🔀 2. What is Git Merge?
 
 **Git merge** combines changes from one branch into another branch.
 
@@ -236,7 +104,7 @@ A ─── B ─── C ─────────── M
 
 ---
 
-# 🛠️ 5. Git Merge Example
+# 🛠️ 3. Git Merge Example
 
 Suppose you have:
 
@@ -280,7 +148,7 @@ git push
 
 ---
 
-# 🔀 6. Fast-Forward Merge
+# 🔀 4. Fast-Forward Merge
 
 Sometimes Git can merge without creating an additional merge commit.
 
@@ -305,7 +173,7 @@ This is called a **Fast-Forward Merge**.
 
 ---
 
-# 🔀 7. Three-Way Merge
+# 🔀 5. Three-Way Merge
 
 When both branches have new commits, Git usually performs a three-way merge.
 
@@ -329,7 +197,7 @@ A ─── B ─── C ── M
 
 ---
 
-# ⚔️ 8. Merge Conflicts
+# ⚔️ 6. Merge Conflicts
 
 A merge conflict happens when Git cannot automatically determine which changes should be kept.
 
@@ -347,7 +215,7 @@ Git is asking you to choose the correct version.
 
 ---
 
-# 🛠️ 9. How to Resolve a Merge Conflict
+# 🛠️ 7. How to Resolve a Merge Conflict
 
 ### Step 1: Check the conflict
 
@@ -397,7 +265,7 @@ git merge --continue
 
 ---
 
-# 🔄 10. What is Git Rebase?
+# 🔄 8. What is Git Rebase?
 
 **Git rebase** moves or replays your commits on top of another branch.
 
@@ -423,7 +291,7 @@ The commits `D` and `E` are replayed as new commits `D'` and `E'`.
 
 ---
 
-# 🛠️ 11. Git Rebase Example
+# 🛠️ 9. Git Rebase Example
 
 Suppose you have:
 
@@ -461,7 +329,7 @@ Now your feature commits are based on the latest `main`.
 
 ---
 
-# ⚔️ 12. Rebase Conflicts
+# ⚔️ 10. Rebase Conflicts
 
 Rebase can also produce conflicts.
 
@@ -511,7 +379,7 @@ git merge --abort
 
 ---
 
-# 🆚 13. Git Merge vs Git Rebase
+# 🆚 11. Git Merge vs Git Rebase
 
 | Git Merge                         | Git Rebase                                  |
 | --------------------------------- | ------------------------------------------- |
@@ -574,7 +442,7 @@ This can cause problems for other developers who already pulled the original com
 
 ---
 
-# 🔥 14. Interactive Rebase
+# 🔥 12. Interactive Rebase
 
 Interactive rebase allows you to modify commit history.
 
@@ -604,7 +472,7 @@ You could squash them into fewer commits.
 
 ---
 
-# 🧹 15. Squashing Commits
+# 🧹 13. Squashing Commits
 
 Suppose you have:
 
@@ -652,7 +520,7 @@ This creates a cleaner history.
 
 ---
 
-# 🚀 16. Practical Feature Branch Workflow
+# 🚀 14. Practical Feature Branch Workflow
 
 A common DevOps development workflow:
 
@@ -706,7 +574,7 @@ Then create a Pull Request on GitHub.
 
 ---
 
-# 🔄 17. Feature Branch Rebase Workflow
+# 🔄 15. Feature Branch Rebase Workflow
 
 Before opening or updating a Pull Request:
 
@@ -749,7 +617,7 @@ because Git checks whether the remote branch changed unexpectedly.
 
 ---
 
-# 🌳 18. Recommended Branch Structure
+# 🌳 16. Recommended Branch Structure
 
 A simple project can use:
 
@@ -780,7 +648,7 @@ The exact branching strategy depends on the team's development and deployment pr
 
 ---
 
-# 🛡️ 19. Git Branch Best Practices
+# 🛡️ 17. Git Branch Best Practices
 
 ### ✅ Use meaningful branch names
 
@@ -863,99 +731,6 @@ Teams commonly use:
 
 ---
 
-# 🎯 Interview Questions
-
-## 1. What is a Git branch?
-
-A Git branch is a movable pointer to a commit that allows developers to work independently on different features or fixes.
-
----
-
-## 2. What is Git merge?
-
-Git merge combines the changes from one branch into another branch.
-
----
-
-## 3. What is Git rebase?
-
-Git rebase moves or replays commits onto a new base commit, usually creating a cleaner and more linear project history.
-
----
-
-## 4. What is the difference between merge and rebase?
-
-**Merge** combines histories and may create a merge commit.
-
-**Rebase** rewrites the commit history by replaying commits on top of another branch.
-
----
-
-## 5. What is a merge conflict?
-
-A merge conflict occurs when Git cannot automatically combine changes from different branches.
-
----
-
-## 6. How do you resolve a merge conflict?
-
-```text
-1. Check git status
-2. Open the conflicted file
-3. Resolve the conflicting changes
-4. Remove conflict markers
-5. git add
-6. Complete the merge
-```
-
----
-
-## 7. What is interactive rebase?
-
-Interactive rebase allows you to modify commit history, such as:
-
-* Squashing commits
-* Reordering commits
-* Editing commit messages
-* Removing commits
-
-Command:
-
-```bash
-git rebase -i HEAD~3
-```
-
----
-
-## 8. Why should you avoid rebasing shared branches?
-
-Because rebase rewrites commit history and can cause problems for developers who already have the original commits.
-
----
-
-# 🚀 Final Summary
-
-```text
-Git Branch
-    │
-    ├── Isolated Development
-    │
-    ▼
-Feature Branch
-    │
-    ├── git add
-    ├── git commit
-    └── git push
-    │
-    ▼
-GitHub Pull Request
-    │
-    ├── Code Review
-    ├── CI/CD
-    └── Testing
-    │
-    ▼
-Main Branch
 ```
 
 ### Remember:
@@ -971,18 +746,3 @@ Main Branch
 > 🚀 **Pull Request = Review and collaborate before merging**
 
 ---
-
-## 📚 Next Git Topics
-
-After Branching, Merging, and Rebasing, learn:
-
-1. Git Merge Conflicts — Hands-on Practice
-2. Git Reset vs Revert
-3. Git Fetch vs Pull
-4. Git Stash
-5. Git Cherry-Pick
-6. Git Tags
-7. Git Log and Git Diff
-8. GitHub Pull Requests
-9. GitHub Actions
-10. Git + Jenkins CI/CD
